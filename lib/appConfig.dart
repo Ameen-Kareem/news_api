@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
 
 class Appconfig {
-  static const supabaseUrl = 'https://iwpnpdslnpzjrfuzgrln.supabase.co';
-  static const supabaseKey =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3cG5wZHNsbnB6anJmdXpncmxuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkyNDI2MzMsImV4cCI6MjA2NDgxODYzM30.-FaAYEgbI4E99Bmi3c30ViJ4lnwkQvD0Khw47ndV10k";
+  static const supabaseUrl = String.fromEnvironment('SUPABASE_URL');
+  static const supabaseKey = String.fromEnvironment('SUPABASE_KEY');
+
   static List newsCategories = [
     "business",
     "entertainment",
