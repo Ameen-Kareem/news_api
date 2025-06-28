@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 import 'package:news_api/apiHelper.dart';
+import 'package:news_api/appConfig.dart';
 import 'package:news_api/main.dart';
 import 'package:news_api/model/all_news_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -63,8 +64,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
       List<Article> trendingNews;
       try {
         final response = await Apihelper.fetchGetApiHelper(
-          endpoint:
-              "top-headlines?country=us&apiKey=17805df1c36c4c94bb8f56613af2d365",
+          endpoint: "top-headlines?country=us&apiKey=${Appconfig.newsApiKey}",
         );
         if (response.statusCode == 200) {
           log("result:${response.body}");
@@ -88,7 +88,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
       try {
         final response = await Apihelper.fetchGetApiHelper(
           endpoint:
-              "top-headlines?country=us&category=$category&apiKey=17805df1c36c4c94bb8f56613af2d365",
+              "top-headlines?country=us&category=$category&apiKey=${Appconfig.newsApiKey}",
         );
         if (response.statusCode == 200) {
           log("result:${response.body}");
@@ -109,8 +109,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
       log("inside the query event:$query");
       try {
         final response = await Apihelper.fetchGetApiHelper(
-          endpoint:
-              "everything?q=$query&apiKey=17805df1c36c4c94bb8f56613af2d365",
+          endpoint: "everything?q=$query&apiKey=${Appconfig.newsApiKey}",
         );
         if (response.statusCode == 200) {
           log("result:${response.body}");

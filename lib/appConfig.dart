@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 class Appconfig {
   static const supabaseUrl = String.fromEnvironment('SUPABASE_URL');
   static const supabaseKey = String.fromEnvironment('SUPABASE_KEY');
+  static const newsApiKey = String.fromEnvironment('NEWS_API_KEY');
 
   static List newsCategories = [
     "business",
